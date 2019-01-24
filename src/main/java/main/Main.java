@@ -47,13 +47,13 @@ public class Main {
         if (lang.equals(langEn)) {
             List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(map.entrySet());
             Collections.shuffle(list);
-            int count =0;
+            int count = 0;
             for (Map.Entry<String, String> entry : list) {
                 Scanner sc1 = new Scanner(System.in);
                 System.out.println("what is the main of " + entry.getKey() + " in Azerbaijani");
                 String answer = sc1.nextLine();
                 if (!answer.equals(entry.getValue())) {
-                    System.out.println("Wrong entry.Please try again: ");
+                    System.out.println("Wrong entry.Please try again");
                     int count2 = 1;
                     for (int i = 0; i < 2; i++) {
                         Scanner sc2 = new Scanner(System.in);
@@ -61,12 +61,14 @@ public class Main {
                         answer = sc2.nextLine();
                         if (!answer.equals(entry.getValue())) {
                             count2++;
-                            if(count2<3) System.out.println("Wrong entry.Please try again: ");
+                            if (count2 < 3) {
+                                System.out.println("Wrong entry.Please try again");
+                            }
                         } else {
                             break;
                         }
-                        if(count2==3){
-                            System.out.println("You are false tru answer is "+entry.getValue());
+                        if (count2 == 3) {
+                            System.out.println("You are false ,true answer is " + entry.getValue());
                             System.exit(0);
                         }
                     }
@@ -76,45 +78,47 @@ public class Main {
                 count++;
             }
             if (count > 2) {
-                    System.out.println("All are right");
-                    System.exit(0);
-                }
+                System.out.println("All are right");
+                System.exit(0);
+            }
 
-        }else if (lang.equals(langAz)) {
+        } else if (lang.equals(langAz)) {
             List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(map.entrySet());
             Collections.shuffle(list);
-            int count =0;
+            int count = 0;
             for (Map.Entry<String, String> entry : list) {
                 Scanner sc1 = new Scanner(System.in);
-                System.out.println("Ingilisce  " + entry.getValue()+ " nedir?");
+                System.out.println("Ingilisce  " + entry.getValue() + " nedir?");
                 String answer = sc1.nextLine();
                 if (!answer.equals(entry.getKey())) {
-                    System.out.println("Sefdir yeniden yoxlayin: ");
+                    System.out.println("Sefdir, yeniden yoxlayin");
                     int count2 = 1;
                     for (int i = 0; i < 2; i++) {
                         Scanner sc2 = new Scanner(System.in);
-                        System.out.println("Ingilisce  " + entry.getValue()+ " nedir?");
+                        System.out.println("Ingilisce  " + entry.getValue() + " nedir?");
                         answer = sc2.nextLine();
                         if (!answer.equals(entry.getKey())) {
                             count2++;
-                            if(count2<3) System.out.println("Sefdir yeniden yoxlayin: ");
+                            if (count2 < 3) {
+                                System.out.println("Sefdir, yeniden yoxlayin");
+                            }
                         } else {
                             break;
                         }
-                        if(count2==3){
-                            System.out.println("Siz sualin cavabini tapa bilmediz , cavab: "+entry.getValue());
+                        if (count2 == 3) {
+                            System.out.println("Siz sualin cavabini tapa bilmediz!!! , cavab: " + entry.getValue());
                             System.exit(0);
                         }
                     }
                 } else {
-                    System.out.println("Tebrikler , dogru cavab!");
+                    System.out.println("Tebrikler!!! , dogru cavab!");
                 }
                 count++;
             }
             if (count > 2) {
-                    System.out.println("Hamsi Dogrudur!");
-                    System.exit(0);
-                }
+                System.out.println("Hamsi Dogrudur!!!");
+                System.exit(0);
+            }
 
         }
     }
